@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/PhotoListItem.scss";
+import PhotoFavButton from './PhotoFavButton';
 
 const PhotoListItem = (props) => {
   const { username, imageSource, id, location, profile } = props;
@@ -10,6 +11,7 @@ const PhotoListItem = (props) => {
     <>
       {photos.map((_, index) => (
         <div key={index} className="photo-list__item" id={`photo-${id}-${index}`}>
+          <PhotoFavButton />  {/* Adding the favorite button */}
           <img src={imageSource} alt={`Photo by ${username} taken in ${location.city}, ${location.country}`} className="photo-list__image" />
           <div className="photo-list__user-details">
             <img src={profile} alt={`${username}'s profile`} className="photo-list__user-profile" />
@@ -25,4 +27,3 @@ const PhotoListItem = (props) => {
 };
 
 export default PhotoListItem;
-
