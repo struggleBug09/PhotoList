@@ -1,19 +1,20 @@
-import React from "react";
-
+import React, {useState} from "react";
 import "../styles/TopicListItem.scss";
 
-const sampleDataForTopicListItem = {
-  id: "1",
-  slug: "topic-1",
-  label: "Nature",
-};
+const TopicListItem = ({title }) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const handleMouseEnter = () => setIsHovered(true);
+  const handleMouseLeave = () => setIsHovered(false);
 
-const TopicListItem = () => {
+
   return (
-    <div className="topic-list__item">
-      {/* Insert React */}
+    <div className="topic-list__item"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}>
+      <h3 className={isHovered ? 'hovered' : ''}>{title}</h3>
     </div>
   );
 };
 
 export default TopicListItem;
+

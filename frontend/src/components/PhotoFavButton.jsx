@@ -12,7 +12,7 @@ const PhotoFavButton = () => {
   return (
     <div className="photo-list__fav-icon" onClick={toggleFavorite}>
       <div className="photo-list__fav-icon-svg">
-        <FavIcon selected={isFavorited} /> {/* Pass the isFavorited state to FavIcon */}
+        <FavIcon selected={isFavorited} /> {/* Passes the isFavorited state to FavIcon */}
       </div>
     </div>
   );

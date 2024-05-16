@@ -1,13 +1,15 @@
 import React from 'react';
 
-import '../styles/TopNavigationBar.scss'
+import '../styles/TopNavigationBar.scss';
 
-const TopNavigation = () => {
+const TopNavigationBar = ({ children }) => {
   return (
     <div className="top-nav-bar">
       <span className="top-nav-bar__logo">PhotoLabs</span>
+      {children}
     </div>
-  )
-}
+  );
+};
 
-export default TopNavigation;
+
+export default TopNavigationBar;
