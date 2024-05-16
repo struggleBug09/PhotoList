@@ -1,6 +1,5 @@
-// App.jsx
 import React from 'react';
-import PhotoList from './components/PhotoList'; // Ensure this import path is correct
+import PhotoList from './components/PhotoList';
 import './App.scss';
 
 const App = () => (

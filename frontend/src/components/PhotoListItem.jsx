@@ -1,10 +1,8 @@
-// PhotoListItem.jsx
 import React from "react";
 import "../styles/PhotoListItem.scss";
 import PhotoFavButton from './PhotoFavButton';
 
 const PhotoListItem = ({ user, urls, id, location }) => {
-  // Destructure directly in the function parameter for cleaner access
   return (
     <div className="photo-list__item" id={`photo-${id}`}>
       <PhotoFavButton />
