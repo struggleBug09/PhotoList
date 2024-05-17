@@ -181,7 +181,7 @@ const photo10 = {
 
 
 
-
+//Comments below are necessary
 const photos = [
   {
     ...photo1,

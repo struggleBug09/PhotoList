@@ -1,17 +1,17 @@
 import React from "react";
-import "../styles/PhotoListItem.scss";
 import PhotoFavButton from './PhotoFavButton';
+import "../styles/PhotoListItem.scss";
 
-const PhotoListItem = ({ user, urls, id, location }) => {
+const PhotoListItem = ({ photo, isFavorited, toggleFavorite }) => {
   return (
-    <div className="photo-list__item" id={`photo-${id}`}>
-      <PhotoFavButton />
-      <img src={urls.regular} alt={`Photo by ${user.username} taken in ${location.city}, ${location.country}`} className="photo-list__image" />
+    <div className="photo-list__item" id={`photo-${photo.id}`}>
+      <PhotoFavButton isFavorited={isFavorited} toggleFavorite={toggleFavorite} />
+      <img src={photo.urls.regular} alt={`Photo by ${photo.user.username}`} className="photo-list__image" />
       <div className="photo-list__user-details">
-        <img src={user.profile} alt={`${user.username}'s profile`} className="photo-list__user-profile" />
+        <img src={photo.user.profile} alt={`${photo.user.username}'s profile`} className="photo-list__user-profile" />
         <div className="photo-list__user-info">
-          <h2>{user.username}</h2>
-          <h2 className="photo-list__user-location">{location.city}, {location.country}</h2>
+          <h2>{photo.user.username}</h2>
+          <h2 className="photo-list__user-location">{photo.location.city}, {photo.location.country}</h2>
         </div>
       </div>
     </div>
@@ -19,6 +19,7 @@ const PhotoListItem = ({ user, urls, id, location }) => {
 };
 
 export default PhotoListItem;
+
 
 
 
