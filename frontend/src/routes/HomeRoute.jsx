@@ -5,9 +5,8 @@ import PhotoList from '../components/PhotoList';
 import photos from '../mocks/photos';
 import PhotoDetailsModal from './PhotoDetailsModal';
 
-const HomeRoute = () => {
+const HomeRoute = (isModalOpen, toggleModal) => {
   const [favorites, setFavorites] = useState([]);
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const addFavorite = photoId => {
     if (!favorites.includes(photoId)) {
@@ -18,16 +17,12 @@ const HomeRoute = () => {
   const removeFavorite = photoId => {
     setFavorites(favorites.filter(id => id !== photoId));
   };
-  
-  const toggleModal = () => {
-    setIsModalOpen(!isModalOpen);
-  };
 
   return (
     <div className="home-route">
       <TopNavigationBar favoritesCount={favorites.length} />
       <PhotoList photos={photos} favorites={favorites} addFavorite={addFavorite} removeFavorite={removeFavorite} onPhotoClick={toggleModal} />
-      {isModalOpen && <PhotoDetailsModal />}
+      {isModalOpen && <PhotoDetailsModal toggleModal={toggleModal} />}
     </div>
   );
 };
