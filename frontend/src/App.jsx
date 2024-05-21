@@ -4,6 +4,7 @@ import './App.scss';
 
 const App = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedPhoto, setSelectedPhoto] = useState(null);
 
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
@@ -11,7 +12,11 @@ const App = () => {
 
   return (
     <div className="App">
-      <HomeRoute isModalOpen={isModalOpen} toggleModal={toggleModal} />
+      <HomeRoute
+        isModalOpen={isModalOpen}
+        toggleModal={toggleModal}
+        setSelectedPhoto={setSelectedPhoto}
+        selectedPhoto={selectedPhoto} />
     </div>
   );
 };
