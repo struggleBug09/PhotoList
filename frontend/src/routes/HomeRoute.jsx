@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import '../styles/HomeRoute.scss';
 import TopNavigationBar from '../components/TopNavigationBar';
 import PhotoList from '../components/PhotoList';
 import photos from '../mocks/photos';
 import PhotoDetailsModal from './PhotoDetailsModal';
 
-const HomeRoute = ({isModalOpen, toggleModal, setSelectedPhoto, selectedPhoto}) => {
+const HomeRoute = ({ isModalOpen, toggleModal }) => {
   const [favorites, setFavorites] = useState([]);
+  const [selectedPhoto, setSelectedPhoto] = useState(null);
 
   const addFavorite = photoId => {
     if (!favorites.includes(photoId)) {
@@ -19,8 +19,8 @@ const HomeRoute = ({isModalOpen, toggleModal, setSelectedPhoto, selectedPhoto}) 
   };
 
   const handlePhotoClick = (photo) => {
-    toggleModal();
     setSelectedPhoto(photo);
+    toggleModal();
   };
 
   return (
@@ -31,12 +31,9 @@ const HomeRoute = ({isModalOpen, toggleModal, setSelectedPhoto, selectedPhoto}) 
         favorites={favorites}
         addFavorite={addFavorite}
         removeFavorite={removeFavorite}
-        onPhotoClick={handlePhotoClick} />
-      {isModalOpen && selectedPhoto && <PhotoDetailsModal
-        toggleModal={toggleModal}
-        selectedPhoto={selectedPhoto}
-        similarPhotos={selectedPhoto.similar_photos} />}
-
+        onPhotoClick={handlePhotoClick}
+      />
+      {isModalOpen && <PhotoDetailsModal toggleModal={toggleModal} selectedPhoto={selectedPhoto} />}
     </div>
   );
 };

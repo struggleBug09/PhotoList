@@ -1,9 +1,8 @@
 import React from 'react';
 import PhotoListItem from './PhotoListItem';
 import '../styles/PhotoList.scss';
-import photos from '../mocks/photos';
 
-const PhotoList = ({ favorites, addFavorite, removeFavorite, onPhotoClick }) => {
+const PhotoList = ({ photos, favorites = [], addFavorite = () => {}, removeFavorite = () => {}, onPhotoClick = () => {} }) => {
   return (
     <ul className="photo-list">
       {photos.map(photo => (
@@ -12,7 +11,7 @@ const PhotoList = ({ favorites, addFavorite, removeFavorite, onPhotoClick }) => 
             photo={photo}
             isFavorited={favorites.includes(photo.id)}
             toggleFavorite={() => favorites.includes(photo.id) ? removeFavorite(photo.id) : addFavorite(photo.id)}
-            onPhotoClick={onPhotoClick}
+            onPhotoClick={() => onPhotoClick(photo)}
           />
         </li>
       ))}
@@ -21,3 +20,5 @@ const PhotoList = ({ favorites, addFavorite, removeFavorite, onPhotoClick }) => 
 };
 
 export default PhotoList;
+
+
