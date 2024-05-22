@@ -50,7 +50,7 @@
 import React from 'react';
 import '../styles/PhotoDetailsModal.scss';
 import closeSymbol from '../assets/closeSymbol.svg';
-import PhotoList from '../components/PhotoList';  // Ensure this import path is correct
+import PhotoList from '../components/PhotoList';
 
 const PhotoDetailsModal = ({ toggleModal, selectedPhoto, similarPhotos }) => {
   if (!selectedPhoto) {
