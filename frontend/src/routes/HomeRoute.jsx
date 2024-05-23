@@ -33,7 +33,7 @@ const HomeRoute = ({ isModalOpen, toggleModal }) => {
         removeFavorite={removeFavorite}
         onPhotoClick={handlePhotoClick}
       />
-      {isModalOpen && <PhotoDetailsModal toggleModal={toggleModal} selectedPhoto={selectedPhoto} />}
+      {isModalOpen && <PhotoDetailsModal toggleModal={toggleModal} selectedPhoto={selectedPhoto} favorites={favorites} addFavorite={addFavorite} removeFavorite={removeFavorite} />}
     </div>
   );
 };
