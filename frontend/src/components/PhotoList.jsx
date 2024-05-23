@@ -4,7 +4,7 @@ import '../styles/PhotoList.scss';
 
 const PhotoList = ({ photos, favorites = [], addFavorite = () => {}, removeFavorite = () => {}, onPhotoClick = () => {} }) => {
   return (
-    <ul className="photo-list">
+    <div className="photo-list">
       {photos.map(photo => (
         <li key={photo.id}>
           <PhotoListItem
@@ -15,7 +15,7 @@ const PhotoList = ({ photos, favorites = [], addFavorite = () => {}, removeFavor
           />
         </li>
       ))}
-    </ul>
+    </div>
   );
 };
 
