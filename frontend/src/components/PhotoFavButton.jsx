@@ -18,4 +18,3 @@ const PhotoFavButton = ({ isFavorited, toggleFavorite }) => {
 };
 
 export default PhotoFavButton;
-
