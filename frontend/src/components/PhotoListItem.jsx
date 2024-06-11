@@ -19,4 +19,3 @@ const PhotoListItem = ({ photo, isFavorited, toggleFavorite, onPhotoClick }) => 
 };
 
 export default PhotoListItem;
-

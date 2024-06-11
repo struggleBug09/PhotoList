@@ -1,33 +1,28 @@
-import React, { useState } from 'react';
+import React from 'react';
 import HomeRoute from '../routes/HomeRoute';
 import '../App.scss';
+import useApplicationData from '../hooks/useApplicationData';
 
 const App = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [favorites, setFavorites] = useState([]);
-
-  const addFavorite = photoId => {
-    if (!favorites.includes(photoId)) {
-      setFavorites([...favorites, photoId]);
-    }
-  };
-
-  const removeFavorite = photoId => {
-    setFavorites(favorites.filter(id => id !== photoId));
-  };
-
-  const toggleModal = () => {
-    setIsModalOpen(!isModalOpen);
-  };
+  const {
+    state,
+    onPhotoSelect,
+    updateToFavPhotoIds,
+    onClosePhotoDetailsModal,
+  } = useApplicationData();
 
   return (
     <div className="App">
       <HomeRoute
-        addFavorite={addFavorite}
-        removeFavorite={removeFavorite}
-        isModalOpen={isModalOpen}
-        toggleModal={toggleModal}
-        favorites={favorites} />
+        addFavorite={updateToFavPhotoIds}
+        removeFavorite={updateToFavPhotoIds}
+        isModalOpen={state.isModalOpen}
+        toggleModal={onClosePhotoDetailsModal}
+        favorites={state.favorites}
+        onPhotoClick={onPhotoSelect}
+        selectedPhoto={state.selectedPhoto}
+        photos={state.photos}
+      />
     </div>
   );
 };

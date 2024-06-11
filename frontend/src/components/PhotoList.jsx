@@ -20,5 +20,3 @@ const PhotoList = ({ photos, favorites = [], addFavorite = () => {}, removeFavor
 };
 
 export default PhotoList;
-
-
