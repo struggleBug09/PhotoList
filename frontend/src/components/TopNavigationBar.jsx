@@ -3,9 +3,7 @@ import '../styles/TopNavigationBar.scss';
 import TopicList from './TopicList';
 import FavBadge from './FavBadge';
 
-
-// Renders the top navigation bar with the logo, topic list, and favorite count badge.
-const TopNavigationBar = ({ topics, favoritesCount }) => {
+const TopNavigationBar = ({ favoritesCount }) => {
   return (
     <div className="top-nav-bar">
       <span className="top-nav-bar__logo">PhotoLabs</span>
