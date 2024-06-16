@@ -1,14 +1,12 @@
 import React from "react";
 import TopicListItem from './TopicListItem';
 import "../styles/TopicList.scss";
+import topics from '../mocks/topics';
 
-
-//Maps out topics to allow easier implementation to render to TopNavigationBar
-const TopicList = ({ topics }) => {
-  console.log('Topics in TopicList:', topics);
+const TopicList = () => {
   return (
     <div className="top-nav-bar__topic-list">
-      {topics && topics.map(topic => (
+      {topics.map(topic => (
         <TopicListItem
           key={topic.id}
           slug={topic.slug}
@@ -20,3 +18,4 @@ const TopicList = ({ topics }) => {
 };
 
 export default TopicList;
+

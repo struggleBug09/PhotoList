@@ -2,12 +2,12 @@ const topics = [
   {
     "id": "1",
     "slug": "topic-1",
-    "title": "Pokemon"
+    "title": "Nature"
   },
   {
     "id": "2",
     "slug": "topic-2",
-    "title": "Volleyball"
+    "title": "Travel"
   },
   {
     "id": "3",

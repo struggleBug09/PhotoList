@@ -4,7 +4,7 @@ import '../styles/PhotoFavButton.scss';
 
 const PhotoFavButton = ({ isFavorited, toggleFavorite }) => {
   const handleFavClick = (e) => {
-    e.stopPropagation(); 
+    e.stopPropagation(); // Prevents modal from opening when clicking fave on homescreen
     toggleFavorite();
   };
 
