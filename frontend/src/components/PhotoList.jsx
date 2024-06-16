@@ -2,6 +2,7 @@ import React from 'react';
 import PhotoListItem from './PhotoListItem';
 import '../styles/PhotoList.scss';
 
+// Utilizes the PhotoListItem component to render individual photos
 const PhotoList = ({ photos, favorites = [], addFavorite = () => {}, removeFavorite = () => {}, onPhotoClick = () => {} }) => {
   return (
     <div className="photo-list">

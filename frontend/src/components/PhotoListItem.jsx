@@ -2,6 +2,8 @@ import React from "react";
 import PhotoFavButton from './PhotoFavButton';
 import "../styles/PhotoListItem.scss";
 
+
+// Renders an individual photo item with user details, favorite button, and click handling.
 const PhotoListItem = ({ photo, isFavorited, toggleFavorite, onPhotoClick }) => {
   return (
     <div className="photo-list__item" onClick={() => onPhotoClick(photo)}>

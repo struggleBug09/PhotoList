@@ -4,7 +4,7 @@ import TopicList from './TopicList';
 import FavBadge from './FavBadge';
 
 
-//Takes topics to render and keeps track of faves to update counter
+// Renders the top navigation bar with the logo, topic list, and favorite count badge.
 const TopNavigationBar = ({ topics, favoritesCount }) => {
   return (
     <div className="top-nav-bar">
