@@ -1,13 +1,17 @@
 import React from 'react';
-import '../styles/TopNavigationBar.scss';
-import TopicList from './TopicList';
+import "../styles/TopNavigationBar.scss";
+import TopicList from './TopicList'; 
 import FavBadge from './FavBadge';
 
-const TopNavigationBar = ({ favoritesCount }) => {
+
+//Takes topics to render and keeps track of faves to update counter
+const TopNavigationBar = ({ topics, favoritesCount }) => {
   return (
     <div className="top-nav-bar">
       <span className="top-nav-bar__logo">PhotoLabs</span>
-      <TopicList />
+      <span className="top-nav-bar__topic-list">
+        <TopicList topics={topics} />
+      </span>
       <FavBadge favoritesCount={favoritesCount} />
     </div>
   );

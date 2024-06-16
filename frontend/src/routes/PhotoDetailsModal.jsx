@@ -16,13 +16,15 @@ const PhotoDetailsModal = ({
     return null;
   }
 
+  // Destructure to get values of similar photos and photo information for modal
   const {
     urls: { regular: photoUrl } = {},
     user: { username, profile: userProfile, name: userName } = {},
     location: { city, country } = {},
     similar_photos: similarPhotos,
   } = selectedPhoto;
-
+  
+  // Takes in array of all similar photos to later render below main photo
   const similarPhotosArray = similarPhotos ? Object.values(similarPhotos) : [];
 
   return (
@@ -47,6 +49,8 @@ const PhotoDetailsModal = ({
           </div>
         </div>
       </div>
+
+      {/* Displays similar photos to image */}
       {similarPhotosArray.length > 0 && (
         <div className="photo-details-modal__images">
           <div className="photo-details-modal__header">Similar Photos</div>

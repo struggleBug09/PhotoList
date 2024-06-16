@@ -2,6 +2,7 @@ import React from 'react';
 import HomeRoute from '../routes/HomeRoute';
 import '../App.scss';
 import useApplicationData from '../hooks/useApplicationData';
+import TopNavigationBar from '../components/TopNavigationBar';
 
 const App = () => {
   const {
@@ -22,10 +23,10 @@ const App = () => {
         onPhotoClick={onPhotoSelect}
         selectedPhoto={state.selectedPhoto}
         photos={state.photos}
+        topics={state.topics}
       />
     </div>
   );
 };
 
 export default App;
-
