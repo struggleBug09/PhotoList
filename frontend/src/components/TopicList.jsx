@@ -1,22 +1,17 @@
-import React from 'react';
+import React from "react";
 import TopicListItem from './TopicListItem';
-import '../styles/TopicList.scss';
+import "../styles/TopicList.scss";
 
-// Maps out topics to allow easier implementation to render to TopNavigationBar
-const TopicList = ({ topics }) => {
+const TopicList = ({ topics, onTopicSelect }) => {
   console.log('Topics in TopicList:', topics);
-
-  if (!topics || topics.length === 0) {
-    return <div>No topics available</div>;
-  }
-
   return (
     <div className="top-nav-bar__topic-list">
-      {topics.map(topic => (
+      {topics && topics.map(topic => (
         <TopicListItem
           key={topic.id}
           slug={topic.slug}
           title={topic.title}
+          onTopicSelect={() => onTopicSelect(topic.id)} // Pass the function
         />
       ))}
     </div>
@@ -24,3 +19,4 @@ const TopicList = ({ topics }) => {
 };
 
 export default TopicList;
+

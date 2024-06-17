@@ -1,8 +1,7 @@
 import React from 'react';
 import HomeRoute from '../routes/HomeRoute';
-import '../App.scss';
 import useApplicationData from '../hooks/useApplicationData';
-import TestApi from './TestApi';
+import '../App.scss';
 
 const App = () => {
   const {
@@ -10,6 +9,7 @@ const App = () => {
     onPhotoSelect,
     updateToFavPhotoIds,
     onClosePhotoDetailsModal,
+    onTopicSelect, 
   } = useApplicationData();
 
   return (
@@ -24,11 +24,10 @@ const App = () => {
         selectedPhoto={state.selectedPhoto}
         photos={state.photos}
         topics={state.topics}
+        onTopicSelect={onTopicSelect} 
       />
-      <TestApi />
     </div>
   );
 };
 
 export default App;
-
