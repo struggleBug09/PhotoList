@@ -1,10 +1,10 @@
 import React from 'react';
 import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
-
+// Renders a favorite button for photos, handling favorite state toggle and preventing event propagation.
 const PhotoFavButton = ({ isFavorited, toggleFavorite }) => {
   const handleFavClick = (e) => {
-    e.stopPropagation(); // Prevents modal from opening when clicking fave on homescreen
+    e.stopPropagation(); 
     toggleFavorite();
   };
 
