@@ -2,6 +2,7 @@ import React from 'react';
 import HomeRoute from '../routes/HomeRoute';
 import '../App.scss';
 import useApplicationData from '../hooks/useApplicationData';
+import TestApi from './TestApi';
 
 const App = () => {
   const {
@@ -22,7 +23,9 @@ const App = () => {
         onPhotoClick={onPhotoSelect}
         selectedPhoto={state.selectedPhoto}
         photos={state.photos}
+        topics={state.topics}
       />
+      <TestApi />
     </div>
   );
 };

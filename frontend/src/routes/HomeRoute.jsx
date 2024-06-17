@@ -3,6 +3,7 @@ import TopNavigationBar from '../components/TopNavigationBar';
 import PhotoList from '../components/PhotoList';
 import PhotoDetailsModal from './PhotoDetailsModal';
 
+
 const HomeRoute = ({
   isModalOpen,
   toggleModal,
@@ -12,10 +13,14 @@ const HomeRoute = ({
   onPhotoClick,
   selectedPhoto,
   photos,
+  topics,
 }) => {
   return (
     <div className="home-route">
-      <TopNavigationBar favoritesCount={favorites.length} />
+      <TopNavigationBar 
+        favoritesCount={favorites.length}
+        topics={topics}/>
+        
       <PhotoList
         photos={photos}
         favorites={favorites}
