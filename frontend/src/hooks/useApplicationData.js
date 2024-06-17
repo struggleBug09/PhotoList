@@ -16,6 +16,11 @@ const reducer = (state, action) => {
         photos: action.payload.photos,
         topics: action.payload.topics,
       };
+    case 'SET_PHOTOS':
+      return {
+        ...state,
+        photos: action.payload,
+      };
     case 'FAV_PHOTO_ADDED':
       return {
         ...state,
@@ -51,15 +56,15 @@ const useApplicationData = () => {
       fetch('/api/photos').then(res => res.json()),
       fetch('/api/topics').then(res => res.json()),
     ])
-      .then(([photos, topics]) => {
-        console.log('Photos:', photos);
-        console.log('Topics:', topics);
-        dispatch({
-          type: 'SET_INITIAL_DATA',
-          payload: { photos, topics },
-        });
-      })
-      .catch(error => console.error('Error fetching data:', error));
+    .then(([photos, topics]) => {
+      dispatch({
+        type: 'SET_INITIAL_DATA',
+        payload: {
+          photos,
+          topics,
+        },
+      });
+    });
   }, []);
 
   const updateToFavPhotoIds = (photoId) => {
@@ -78,11 +83,22 @@ const useApplicationData = () => {
     dispatch({ type: 'CLOSE_PHOTO_DETAILS_MODAL' });
   };
 
+  const onTopicSelect = (topicId) => {
+    console.log(`Selected topic ID: ${topicId}`);
+    fetch(`/api/topics/photos/${topicId}`)
+      .then(res => res.json())
+      .then(photos => {
+        console.log('Photos for selected topic:', photos);
+        dispatch({ type: 'SET_PHOTOS', payload: photos });
+      });
+  };
+
   return {
     state,
     onPhotoSelect,
     updateToFavPhotoIds,
     onClosePhotoDetailsModal,
+    onTopicSelect,
   };
 };
 

@@ -5,7 +5,7 @@ import '../styles/FavBadge.scss';
 const FavBadge = ({ favoritesCount }) => {
   return (
     <div className='fav-badge'>
-      <FavIcon selected={favoritesCount > 0} />
+      <FavIcon selected={true} displayAlert={favoritesCount > 0} />
       {favoritesCount > 0 && (
         <div className="fav-badge__count">
           <span>{favoritesCount}</span>
@@ -14,6 +14,5 @@ const FavBadge = ({ favoritesCount }) => {
     </div>
   );
 };
-
 
 export default FavBadge;
